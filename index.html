@@ -23,8 +23,8 @@
                     <p>{{title.original_title}}</p>
                     <p>{{title.original_language}}</p>
                     <p>{{title.vote_average}}</p>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
+                    <i v-for="star in title.vote_average" class="fas fa-star"></i>
+                    <i v-for="star in 5-title.vote_average" class="far fa-star"></i>
                 </div>
             </div>
 
