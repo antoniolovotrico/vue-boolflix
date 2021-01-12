@@ -11,8 +11,13 @@ let app = new Vue ({
             .then(response => {
                 //console.log(response);
                this.movies =response.data.results;
-               console.log(this.movies); 
-               console.log(this.search);
+               //console.log(this.movies); 
+               //console.log(this.search);
+               this.movies.forEach(element => {
+                  let voteAver = Math.ceil(element.vote_average / 2);
+                  //console.log(voteAver);
+                  element.vote_average = voteAver; 
+               });
             })
         },
 
