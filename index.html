@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <title>vue-boolflix</title>
+    </head>
+    <body>
+        <div id="app">
+            <header class="topbar d-flex">
+                <h1>BOOLFLIX</h1>
+                <div class="search d-flex">
+                    <input type="text" v-model="search">
+                    <button @click="searchFunc">Search</button>
+                </div>             
+            </header>
+            <div class="movie_section d-flex">
+                <div class="movie_info" v-for="title in movies">
+                    <p>{{title.title}}</p>
+                    <p>{{title.original_title}}</p>
+                    <p>{{title.original_language}}</p>
+                    <p>{{title.vote_average}}</p>
+                </div>
+            </div>
+
+
+
+        </div>
+       <!-- Axios CDN -->
+       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+       <!-- VueJs CDN -->
+       <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+       
+       <!-- link to javascript file -->
+       <script src="assets/js/main.js"></script> 
+    </body>
+</html>

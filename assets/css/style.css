@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #293133 ;
+}
+.d-flex{
+    display: flex;
+}
+
+.topbar{
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.movie_section{
+    flex-wrap: wrap;
+}
+
+.movie_info{
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+}
