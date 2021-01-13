@@ -6,9 +6,11 @@ let app = new Vue ({
     },
     methods:{
         searchFunc:function(){
+            let apiOne = `https://api.themoviedb.org/3/search/movie?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`;
+
+            const requestapiONe = axios.get(apiOne)
             
-            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`)
-            .then(response => {
+            requestapiONe.then(response => {
                 //console.log(response);
                this.movies =response.data.results;
                //console.log(this.movies); 
