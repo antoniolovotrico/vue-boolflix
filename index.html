@@ -19,12 +19,13 @@
             </header>
             <div class="movie_section d-flex">
                 <div class="movie_info" v-for="title in movies">
+                    <img :src="`https://image.tmdb.org/t/p/w154/${title.poster_path}`" alt="">
                     <p>{{title.title}}</p>
                     <p>{{title.name}}</p>
                     <p>{{title.original_title}}</p>
                     <p>{{title.original_name}}</p>
                     <p>{{title.original_language}}</p>
-                    <img v-if="`${title.original_language}`== 'en'? 'en'== 'gb':'gb'" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`" >
+                    <img :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`" >
                     <p>{{title.vote_average}}</p>
                     <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
                 </div>

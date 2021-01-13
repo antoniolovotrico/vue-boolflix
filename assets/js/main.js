@@ -15,7 +15,7 @@ let app = new Vue ({
             const requestapiTwo = axios.get(apiTwo);
             
             axios.all([requestapiONe,requestapiTwo]).then(axios.spread(response => {
-                console.log(response);
+                console.log(response.data.results);
                 this.movies = response.data.results;
                 //console.log(this.movies); 
                 //console.log(this.search);
@@ -23,24 +23,24 @@ let app = new Vue ({
                     let voteAver = Math.ceil(element.vote_average / 2);
                     //console.log(voteAver);
                     element.vote_average = voteAver;
-                    console.log(element.original_language);
-                    if (element.original_language == "en"){
+                    //console.log(element.original_language);
+                    if (element.original_language == "en") {
                         element.original_language = "gb";
 
                       } else if (element.original_language == "fa") {
                         element.original_language = "ir";
                       } else if (element.original_language == "zh") {
                         element.original_language = "cn";
+                      } else if (element.original_language == "ja"){
+                        element.original_language = "jp";
                       } else if (element.original_language == "ko") {
                         element.original_language = "kr";
+                      } else if (element.original_language == "da"){
+                        element.original_language = "dk";
                       } else if (element.original_language == "vi"){
                         element.original_language = "vn";
                       } else if (element.original_language == "et"){
                         element.original_language = "ee";
-                      } else if (element.original_language == "ja"){
-                        element.original_language = "jp";
-                      } else if (element.original_language == "da"){
-                        element.original_language = "dk";
                       } else if (element.original_language == "hu"){
                         element.original_language = "ua";
                       } else if (element.original_language == "nn"){
