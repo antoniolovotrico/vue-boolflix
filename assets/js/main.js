@@ -8,10 +8,13 @@ let app = new Vue ({
         searchFunc:function(){
             let apiOne = `https://api.themoviedb.org/3/search/movie?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`;
 
-            const requestapiONe = axios.get(apiOne)
+            let apiTwo =`https://api.themoviedb.org/3/search/tv?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`
+
+            const requestapiONe = axios.get(apiOne);
+            const requestapiTwo = axios.get(apiTwo);
             
-            requestapiONe.then(response => {
-                //console.log(response);
+            axios.all([requestapiONe,requestapiTwo]).then(axios.spread(response => {
+                //console.log(response.data.results);
                this.movies =response.data.results;
                //console.log(this.movies); 
                //console.log(this.search);
@@ -20,7 +23,7 @@ let app = new Vue ({
                   //console.log(voteAver);
                   element.vote_average = voteAver; 
                });
-            })
+            }))
         },
 
         
