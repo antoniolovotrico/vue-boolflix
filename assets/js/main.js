@@ -14,10 +14,14 @@ let app = new Vue ({
             const requestapiONe = axios.get(apiOne);
             const requestapiTwo = axios.get(apiTwo);
             
-            axios.all([requestapiONe,requestapiTwo]).then(axios.spread(response => {
-                console.log(response.data.results);
-                this.movies = response.data.results;
-                //console.log(this.movies); 
+            axios.all([requestapiONe,requestapiTwo]).then(axios.spread((...response) => {
+                //console.log(response.data.results);
+                const responseapiOne = response[0].data.results;
+                const responseapiTwo = response[1].data.results;
+                console.log(responseapiOne);
+                console.log(responseapiTwo);
+                this.movies = responseapiOne.concat(responseapiTwo);
+                console.log(this.movies); 
                 //console.log(this.search);
                 this.movies.forEach(element => {
                     let voteAver = Math.ceil(element.vote_average / 2);
@@ -26,7 +30,6 @@ let app = new Vue ({
                     //console.log(element.original_language);
                     if (element.original_language == "en") {
                         element.original_language = "gb";
-
                       } else if (element.original_language == "fa") {
                         element.original_language = "ir";
                       } else if (element.original_language == "zh") {
