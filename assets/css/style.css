@@ -23,14 +23,35 @@ body {
     flex-wrap: wrap;
 }
 
-.movie_info{
-    padding: 20px;
-    height: 500px;
-    width: 200px;
-    background-color: grey;
-    margin: 20px;
+.movie_hover{  
+    display: none;
+    
+}
+.movie_info{    
+    z-index: 1;
+    width: 342px;
+    margin-left: 50px;
+    margin-top: 50px;
+    position: relative;
 }
 
 h1{
     color: red;
+}
+
+.movie_info:hover .movie_hover{  
+    display: inline;
+    width: 342px;
+    background-color: grey;
+    height: 523px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;  
+    padding: 20px;  
+}
+
+.movie_info:hover{
+    z-index: 0;
 }
