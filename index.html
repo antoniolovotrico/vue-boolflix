@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
         <title>vue-boolflix</title>
     </head>
     <body>
@@ -25,14 +27,13 @@
                     <img v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" v-if="hover = false" alt="">
                     <img v-else src="assets/img/no-poster-available.png" alt="">
                     
-                    <div class="movie_hover d-flex"> 
-                        <p>{{title.title}}</p>
-                        <p>{{title.name}}</p>
-                        <p>{{title.original_title}}</p>
-                        <p>{{title.original_name}}</p>
-                        <img v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
+                    <div class="movie_hover "> 
+                        <h2>{{title.title}}</h2>
+                        <h2>{{title.name}}</h2>
+                        <h3>{{title.original_title}}</h3>
+                        <h3>{{title.original_name}}</h3>
+                        <img class="flag" v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
                         <p v-else>{{title.original_language}}</p>
-                        <p>{{title.vote_average}}</p>
                         <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
                         <p>{{title.overview}}</p>
                     </div>

@@ -6,7 +6,7 @@
 
 body {
     background-color: #293133 ;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "lato";
 }
 .d-flex{
     display: flex;
@@ -16,7 +16,22 @@ body {
     justify-content: space-around;
     align-items: center;
     height: 100px;
-    background-color: darkslategrey;
+    background-color: black;
+}
+
+input{
+    background-color: black;
+    height: 30px;
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
 }
 
 .movie_section{
@@ -25,11 +40,11 @@ body {
 
 .movie_hover{  
     display: none;
-    
 }
 .movie_info{    
     z-index: 1;
     width: 342px;
+    height: 520px;
     margin-left: 50px;
     margin-top: 50px;
     position: relative;
@@ -37,21 +52,34 @@ body {
 
 h1{
     color: red;
+    font-weight: 900;
+    letter-spacing: 5px;
 }
 
 .movie_info:hover .movie_hover{  
     display: inline;
     width: 342px;
     background-color: grey;
-    height: 523px;
+    height: 520px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;  
-    padding: 20px;  
+    padding: 20px; 
+}
+
+.movie_info:hover .movie_hover h2,h3{
+    text-align: center;
+    display: block;
+    line-height: 40px;
 }
 
 .movie_info:hover{
     z-index: 0;
+}
+
+.fa-star,.flag{
+    vertical-align: middle;
+    padding: 10px 0px;
 }
