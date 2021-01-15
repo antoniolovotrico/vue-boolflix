@@ -75,7 +75,7 @@ h1{
 .movie_info:hover .movie_hover{  
     display: inline;
     width: 342px;
-    background-color: grey;
+    background-color: black;
     height: 520px;
     position: absolute;
     top: 50%;
@@ -86,6 +86,7 @@ h1{
     outline: none !important;
     border:1px solid red;
     box-shadow: 0 0 10px #719ECE;
+    color: white;
 }
 
 .movie_info:hover .movie_hover h2,h3{

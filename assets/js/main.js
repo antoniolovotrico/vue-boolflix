@@ -255,13 +255,7 @@ let app = new Vue ({
             
         },
         clearFunc:function(){
-          
-          let clear = this.search.split("");
-          console.log(clear);
-          if (clear.length < 0) {
             this.seeInput = true;
-          }
-          
         },
 
         searchFunc:function(){
@@ -323,8 +317,4 @@ let app = new Vue ({
           }     
         },
     },
-    updated(){
-      this.clearFunc();
-    }
-    
 })
