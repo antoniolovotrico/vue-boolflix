@@ -246,12 +246,27 @@ let app = new Vue ({
       "za",
       "zm",
       "zw"],
-      hover:false 
-
+      seeInput:true
     },
     methods:{
-        searchFunc:function(){
+        showFunc:function(){
+          this.seeInput = false;
+          console.log(this.seeInput);
+            
+        },
+        clearFunc:function(){
           
+          let clear = this.search.split("");
+          console.log(clear);
+          if (clear.length < 0) {
+            this.seeInput = true;
+          }
+          
+        },
+
+        searchFunc:function(){
+          let clear = this.search.split("");
+          if (clear.length > 0) {
             let apiOne = `https://api.themoviedb.org/3/search/movie?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`;
 
             let apiTwo =`https://api.themoviedb.org/3/search/tv?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`;
@@ -266,6 +281,7 @@ let app = new Vue ({
                 //console.log(responseapiOne);
                 //console.log(responseapiTwo);
                 this.movies = responseapiOne.concat(responseapiTwo);
+                
                 console.log(this.movies); 
                 //console.log(this.search);
                 this.movies.forEach(element => {
@@ -303,7 +319,12 @@ let app = new Vue ({
                         element.original_language = "ua";
                     };       
                });
-            }))    
+            })) 
+          }     
         },
+    },
+    updated(){
+      this.clearFunc();
     }
+    
 })

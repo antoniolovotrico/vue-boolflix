@@ -13,19 +13,22 @@
     <body>
         <div id="app">
 
-            <header class="topbar d-flex">
-                <h1>BOOLFLIX</h1>
-                <form class="search d-flex" @keydown="searchFunc">
-                    <input type="text" v-model="search">   
-                </form>             
+            <header class="top_container">
+                <div class="topbar d-flex">
+                    <h1>BOOLFLIX</h1>
+                    <i @click="showFunc" v-if="seeInput"  class="fas fa-search"></i>
+                    <form v-else class="search d-flex" @keydown="searchFunc">
+                        <input type="text" v-model="search">   
+                    </form> 
+                </div>
             </header>
 
             <div class="movie_section d-flex">
 
                 <div class="movie_info" v-for="title in movies">
                     
-                    <img v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" v-if="hover = false" alt="">
-                    <img v-else src="assets/img/no-poster-available.png" alt="">
+                    <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
+                    <img v-else class="poster" src="assets/img/no-poster-available.png" alt="">
                     
                     <div class="movie_hover "> 
                         <h2>{{title.title}}</h2>
