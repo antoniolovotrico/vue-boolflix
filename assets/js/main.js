@@ -268,20 +268,48 @@ let app = new Vue ({
             const requestapiONe = axios.get(apiOne);
             const requestapiTwo = axios.get(apiTwo);
             
-            axios.all([requestapiONe,requestapiTwo]).then(axios.spread((...response) => {
+            axios.all([requestapiONe,requestapiTwo]).then(response => {
                 //console.log(response.data.results);
                 const responseapiOne = response[0].data.results;
                 const responseapiTwo = response[1].data.results;
-                //console.log(responseapiOne);
+                console.log(responseapiOne);
                 //console.log(responseapiTwo);
                 this.movies = responseapiOne.concat(responseapiTwo);
+
                 
-                console.log(this.movies); 
+                //console.log(this.movies); 
                 //console.log(this.search);
                 this.movies.forEach(element => {
                     let voteAver = Math.ceil(element.vote_average / 2);
                     //console.log(voteAver);
                     element.vote_average = voteAver;
+                    // let apiThree = `https://api.themoviedb.org/3/genre/movie/list?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
+
+                    // let apiFour =`https://api.themoviedb.org/3/genre/tv/list?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
+
+                    // let apiFive = `https://api.themoviedb.org/3/movie/${element.id}/credits?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
+
+                    // let apiSix =`https://api.themoviedb.org/3/tv/${element.id}/credits?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
+
+                    // const requestapiThree = axios.get(apiThree);
+                    // const requestapiFour = axios.get(apiFour);
+                    // const requestapiFive = axios.get(apiFive);
+                    // const requestapiSix = axios.get(apiSix);
+
+                    // axios.all([requestapiFive,requestapiSix]).then(response => {
+                      // const responseapiThree = response[0].data.genres;
+                      // const responseapiFour = response[1].data.genres;
+                      // const responseapiFive = response[0].data.cast;
+                      // const responseapiSix = response[1].data.cast;
+                      
+                       //console.log(responseapiThree);
+                      // console.log(responseapiFour);
+                    //    console.log(responseapiFive);
+                    //   console.log(responseapiSix);
+                    // })
+                    
+
+
                     //console.log(element.original_language);
                     if (element.original_language == "en") {
                         element.original_language = "gb";
@@ -313,8 +341,12 @@ let app = new Vue ({
                         element.original_language = "ua";
                     };       
                });
-            })) 
+               
+
+
+            })
           }     
         },
+          
     },
 })

@@ -44,7 +44,7 @@ input{
 
 input:focus {
     outline: none !important;
-    border:1px solid red;
+    border:1px solid blue;
     box-shadow: 0 0 10px #719ECE;
 }
 
@@ -73,8 +73,9 @@ p{
 }
 
 h1{
-    color: red;
+    color:blue;
     font-weight: 900;
+    font-size: 3rem;
     letter-spacing: 5px;
 }
 
@@ -89,7 +90,7 @@ h1{
     z-index: 1;  
     padding: 20px; 
     outline: none !important;
-    border:1px solid red;
+    border:1px solid blue;
     box-shadow: 0 0 10px #719ECE;
     color: white;
     transition: ease-in-out 0.5s;
