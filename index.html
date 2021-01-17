@@ -34,8 +34,12 @@
                         <img class="flag" v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
                         <h4 v-else>{{title.original_language}}</h4>
                         <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
+                        <h5>Overview</h5>
                         <p>{{title.overview}}</p>
+                        <h5>Cast</h5>
                         <p v-for="movieActor in title.movieCast">{{movieActor}}</p>
+                        <h5>Genre</h5>
+                        <p v-if="genres.icludes(title.genre_ids)? title.genre_ids == genres.name "> </p>
                     </div>
                 </div> 
 
@@ -48,7 +52,9 @@
                         <img class="flag" v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
                         <h4 v-else>{{title.original_language}}</h4>
                         <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
+                        <h5>Overview</h5>
                         <p>{{title.overview}}</p>
+                        <h5>Cast</h5>
                         <p v-for="tvActor in title.tvCast">{{tvActor}}</p>
                     </div>
                 </div>   

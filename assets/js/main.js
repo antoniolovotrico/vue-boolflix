@@ -3,6 +3,7 @@ let app = new Vue ({
   el: "#app",
   data:{
     shows:[],
+    genres:[],
     search:"",  
     codeFlag:["ae",
     "af",
@@ -262,22 +263,35 @@ let app = new Vue ({
           let searchMovieApi = `https://api.themoviedb.org/3/search/movie?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`;
 
           let searchTvApi =`https://api.themoviedb.org/3/search/tv?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`;
+          let genreMovieApi = `https://api.themoviedb.org/3/genre/movie/list?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
 
-          const requestsearchMovieApi = axios.get(searchMovieApi);
-          const requestsearchTvApi = axios.get(searchTvApi);
+          let genreTvApi =`https://api.themoviedb.org/3/genre/tv/list?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
+
+          const requestSearchMovieApi = axios.get(searchMovieApi);
+          const requestSearchTvApi = axios.get(searchTvApi);
+          const requestGenreMovieApi = axios.get(genreMovieApi);
+          const requestGenreTvApi = axios.get(genreTvApi);
           
-          axios.all([requestsearchMovieApi,requestsearchTvApi]).then(response => {
-            const responsesearchMovieApi = response[0].data.results;
-            const responsesearchTvApi = response[1].data.results;
-              
-            this.$set(this.shows,"movie",responsesearchMovieApi);
-            this.$set(this.shows,"tv",responsesearchTvApi);
-              
+          axios.all([requestSearchMovieApi,requestSearchTvApi,requestGenreMovieApi,requestGenreTvApi]).then(response => {
+            const responseSearchMovieApi = response[0].data.results;
+            const responseSearchTvApi = response[1].data.results;
+            const responseGenreMovieApi = response[2].data.genres;
+            const responseGenreTvApi = response[3].data.genres;
+            
+            this.$set(this.shows,"movie",responseSearchMovieApi);
+            this.$set(this.shows,"tv",responseSearchTvApi);
+            this.$set(this.genres,"movieList",responseGenreMovieApi);
+            this.$set(this.genres,"tvList",responseGenreTvApi); 
                       
             this.shows.movie.forEach((element,i) => {
               
               let voteAver = Math.ceil(element.vote_average / 2);
               element.vote_average = voteAver;
+              console.log(element.genre_ids);
+              if (element.genre_ids == this.genres.movieList.id) {
+                //element.genre_ids = this.genres.movielist.name;
+                console.log(element.genre_ids);
+              }
               
               if (element.original_language == "en") {
                 element.original_language = "gb";
@@ -362,7 +376,7 @@ let app = new Vue ({
 
                 let tvCastApi = response.data.cast.slice(0,5);
                 let tvCast=[];
-                //PROVA CON IL FOREACH
+                //forEach Api cast actors of tv
                 tvCastApi.forEach(actors =>{
                   tvCast.push(actors.name)
                 })
@@ -376,14 +390,7 @@ let app = new Vue ({
     }                
 })
 
- // let apiThree = `https://api.themoviedb.org/3/genre/movie/list?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
-
-                    // let apiFour =`https://api.themoviedb.org/3/genre/tv/list?api_key=7eb147338689b7a3f2976a51bd64cbb5`;
-
-                    // const requestapiThree = axios.get(apiThree);
-                    // const requestapiFour = axios.get(apiFour);
-                    // const responseapiThree = response[0].data.genres;
-                      // const responseapiFour = response[1].data.genres;
+ 
 
 // let app = new Vue ({
 //   el: "#app",

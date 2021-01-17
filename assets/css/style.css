@@ -79,6 +79,11 @@ h1{
     letter-spacing: 5px;
 }
 
+h4,h5{
+    text-align: center;
+    padding: 10px 0;
+}
+
 .movie_info:hover .movie_hover{  
     visibility: visible;
     width: 342px;
