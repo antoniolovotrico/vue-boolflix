@@ -17,7 +17,7 @@
                 <div class="topbar d-flex">
                     <h1>APIFLIX</h1>
                     <i @click="showFunc" v-if="seeInput"  class="fas fa-search"></i>
-                    <form v-else class="search d-flex" @keydown="searchFunc">
+                    <form v-else class="search d-flex" @submit.prevent="searchFunc">
                         <input type="text" v-model="search">   
                     </form> 
                 </div>
@@ -25,22 +25,34 @@
 
             <div class="movie_section d-flex" @click="clearFunc">
 
-                <div class="movie_info" v-for="title in movies">
-                    
+                <div class="movie_info" v-for="title in shows.movie">  
                     <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
                     <img v-else class="poster" src="assets/img/no-poster-available.png" alt="">
-                    
                     <div class="movie_hover "> 
                         <h2>{{title.title}}</h2>
-                        <h2>{{title.name}}</h2>
                         <h3>{{title.original_title}}</h3>
+                        <img class="flag" v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
+                        <h4 v-else>{{title.original_language}}</h4>
+                        <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
+                        <p>{{title.overview}}</p>
+                        <p v-for="movieActor in title.movieCast">{{movieActor}}</p>
+                    </div>
+                </div> 
+
+                <div class="movie_info" v-for="title in shows.tv">              
+                    <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
+                    <img v-else class="poster" src="assets/img/no-poster-available.png" alt="">        
+                    <div class="movie_hover "> 
+                        <h2>{{title.name}}</h2>
                         <h3>{{title.original_name}}</h3>
                         <img class="flag" v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
                         <h4 v-else>{{title.original_language}}</h4>
                         <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
                         <p>{{title.overview}}</p>
+                        <p v-for="tvActor in title.tvCast">{{tvActor}}</p>
                     </div>
                 </div>   
+                 
             </div>    
 
         </div>
