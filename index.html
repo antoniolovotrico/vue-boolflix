@@ -28,10 +28,10 @@
                 </div>
             </header>
             <!-- menu bar -->
-
+            
             <!-- main Shows container -->
             <div class="movie_section d-flex" @click="clearFunc">
-
+                <h2 class="title_section">Movies</h2>
                 <!-- container section for movies -->
                 <div class="movie_info" v-for="(title,i) in shows.movie">  
                     <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
@@ -51,7 +51,11 @@
                     </div>
                 </div> 
                 <!-- //container section for movies -->
-
+            </div>
+            
+            <!-- main Shows container -->
+            <div class="movie_section d-flex" @click="clearFunc">
+                <h2 class="title_section">Tv Shows</h2>
                 <!-- container section for tv-show -->
                 <div class="movie_info" v-for="(title,i) in shows.tv">              
                     <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
