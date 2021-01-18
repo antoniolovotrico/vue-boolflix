@@ -260,6 +260,10 @@ let app = new Vue ({
     clearFunc:function(){
         this.seeInput = true;
     },
+    //Function to refresh page on logo click 
+    refreshFunc:function(){
+      location.reload();
+    },
     //Function to search movie and tvShows based on input field search
     searchFunc:function(){
 

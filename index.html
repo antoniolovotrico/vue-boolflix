@@ -22,7 +22,7 @@
             <!-- menu bar -->
             
             <header class="topbar d-flex">
-                <h1><img id="logo" src="assets/img/logo_transparent.png" alt=""></h1>
+                <a href="" @click="refreshFunc"><img id="logo" src="assets/img/logo_transparent.png" alt=""></a>
                 <i @click="showFunc" v-if="seeInput"  class="fas fa-search"></i>
                 <form v-else class="search d-flex" @submit.prevent="searchFunc">
                     <input type="text" v-model="search">   
