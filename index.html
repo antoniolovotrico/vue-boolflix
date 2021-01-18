@@ -11,6 +11,8 @@
         <!-- google font -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+        <!-- favicon -->
+        <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
         <title>vue-boolflix</title>
     </head>
     <body>
@@ -20,14 +22,14 @@
             <!-- menu bar -->
             
             <header class="topbar d-flex">
-                <h1>APIFLIX</h1>
+                <h1><img id="logo" src="assets/img/logo_transparent.png" alt=""></h1>
                 <i @click="showFunc" v-if="seeInput"  class="fas fa-search"></i>
                 <form v-else class="search d-flex" @submit.prevent="searchFunc">
                     <input type="text" v-model="search">   
                 </form>   
             </header>
             <!-- menu bar -->
-            <img v-if="research" class="background_cine" src="assets/img/cinema_background.jpg" alt="">
+            <img v-if="research" class="background_cine" src="assets/img/9263.jpg" alt="" @click="clearFunc">
             <div v-else>
                 <!-- main Shows container -->
                 <h2 class="title_section">Movies</h2>
