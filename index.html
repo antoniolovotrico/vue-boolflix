@@ -4,15 +4,20 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- link to css style -->
         <link rel="stylesheet" href="assets/css/style.css">
+        <!-- fontawesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <!-- google font -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
         <title>vue-boolflix</title>
     </head>
     <body>
+        <!-- General Div for app istance -->
         <div id="app">
 
+            <!-- menu bar -->
             <header class="top_container">
                 <div class="topbar d-flex">
                     <h1>APIFLIX</h1>
@@ -22,10 +27,13 @@
                     </form> 
                 </div>
             </header>
+            <!-- menu bar -->
 
+            <!-- main Shows container -->
             <div class="movie_section d-flex" @click="clearFunc">
 
-                <div class="movie_info" v-for="title in shows.movie">  
+                <!-- container section for movies -->
+                <div class="movie_info" v-for="(title,i) in shows.movie">  
                     <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
                     <img v-else class="poster" src="assets/img/no-poster-available.png" alt="">
                     <div class="movie_hover "> 
@@ -37,13 +45,15 @@
                         <h5>Overview</h5>
                         <p>{{title.overview}}</p>
                         <h5>Cast</h5>
-                        <p v-for="movieActor in title.movieCast">{{movieActor}}</p>
+                        <p class="act_gen" v-for="movieActor in title.movieCast"> {{movieActor}} ,</p>
                         <h5>Genre</h5>
-                        <p v-if="genres.icludes(title.genre_ids)? title.genre_ids == genres.name "> </p>
+                        <p class="act_gen" v-for="movieGen in title.genre_ids"> {{movieGen}} ,</p>     
                     </div>
                 </div> 
+                <!-- //container section for movies -->
 
-                <div class="movie_info" v-for="title in shows.tv">              
+                <!-- container section for tv-show -->
+                <div class="movie_info" v-for="(title,i) in shows.tv">              
                     <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
                     <img v-else class="poster" src="assets/img/no-poster-available.png" alt="">        
                     <div class="movie_hover "> 
@@ -55,13 +65,19 @@
                         <h5>Overview</h5>
                         <p>{{title.overview}}</p>
                         <h5>Cast</h5>
-                        <p v-for="tvActor in title.tvCast">{{tvActor}}</p>
+                        <p class="act_gen" v-for="tvActor in title.tvCast"> {{tvActor}} , </p>
+                        <h5>Genre</h5>
+                        <p class="act_gen" v-for="tvGen in title.genre_ids"> {{tvGen}} ,</p>
                     </div>
-                </div>   
+                </div>  
+                <!-- //container section for tv-show --> 
                  
             </div>    
+            <!-- main Shows container -->
 
         </div>
+        <!-- //General Div for app istance -->
+
        <!-- Axios CDN -->
        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
