@@ -18,20 +18,20 @@
         <div id="app">
 
             <!-- menu bar -->
-            <header class="top_container">
-                <div class="topbar d-flex">
-                    <h1>APIFLIX</h1>
-                    <i @click="showFunc" v-if="seeInput"  class="fas fa-search"></i>
-                    <form v-else class="search d-flex" @submit.prevent="searchFunc">
-                        <input type="text" v-model="search">   
-                    </form> 
-                </div>
+            
+            <header class="topbar d-flex">
+                <h1>APIFLIX</h1>
+                <i @click="showFunc" v-if="seeInput"  class="fas fa-search"></i>
+                <form v-else class="search d-flex" @submit.prevent="searchFunc">
+                    <input type="text" v-model="search">   
+                </form>   
             </header>
             <!-- menu bar -->
             
             <!-- main Shows container -->
+            <h2 class="title_section">Movies</h2>
             <div class="movie_section d-flex" @click="clearFunc">
-                <h2 class="title_section">Movies</h2>
+                
                 <!-- container section for movies -->
                 <div class="movie_info" v-for="(title,i) in shows.movie">  
                     <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
@@ -54,8 +54,9 @@
             </div>
             
             <!-- main Shows container -->
+            <h2 class="title_section">TvShows</h2>
             <div class="movie_section d-flex" @click="clearFunc">
-                <h2 class="title_section">Tv Shows</h2>
+                
                 <!-- container section for tv-show -->
                 <div class="movie_info" v-for="(title,i) in shows.tv">              
                     <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
