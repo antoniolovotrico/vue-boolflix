@@ -24,7 +24,7 @@ body {
     z-index: 2;
     justify-content: space-around;
     align-items: center;
-    height: 100px;
+    height: 10vh;
     background-color: black;  
 }
 
@@ -47,6 +47,11 @@ input:focus {
     box-shadow: 0 0 10px #719ECE;
 }
 
+.background_cine{
+    height: 90vh;
+    width: 100vw;
+    background-size: cover;
+}
 .title_section{
     padding-left: 50px;
     

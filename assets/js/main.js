@@ -248,7 +248,8 @@ let app = new Vue ({
     "za",
     "zm",
     "zw"],
-    seeInput:true
+    seeInput:true,
+    research:true,
     },
   methods:{ 
     //Function to show input field search
@@ -266,6 +267,8 @@ let app = new Vue ({
       let clear = this.search.split("");
       if (clear.length > 0) {
 
+        //Hide cinema background
+        this.research = false;
         //declare variables for Api Urls 
         let searchMovieApi = `https://api.themoviedb.org/3/search/movie?api_key=7eb147338689b7a3f2976a51bd64cbb5&query=${this.search}`;
 
