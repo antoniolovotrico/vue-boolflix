@@ -38,7 +38,7 @@
                     <img v-else class="poster" src="assets/img/no-poster-available.png" alt="">
                     <div class="movie_hover "> 
                         <h2>{{title.title}}</h2>
-                        <h3>{{title.original_title}}</h3>
+                        <h3 v-if="title.title !== title.original_title">{{title.original_title}}</h3>
                         <img class="flag" v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
                         <h4 v-else>{{title.original_language}}</h4>
                         <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
@@ -58,7 +58,7 @@
                     <img v-else class="poster" src="assets/img/no-poster-available.png" alt="">        
                     <div class="movie_hover "> 
                         <h2>{{title.name}}</h2>
-                        <h3>{{title.original_name}}</h3>
+                        <h3 v-if="title.title !== title.original_title">{{title.original_name}}</h3>
                         <img class="flag" v-if="codeFlag.includes(title.original_language) == true" :src="`https://www.countryflags.io/${title.original_language}/shiny/32.png`">
                         <h4 v-else>{{title.original_language}}</h4>
                         <i v-for="star in title.vote_average" class="fas fa-star"></i><i v-for="star in 5-title.vote_average" class="far fa-star"></i>
