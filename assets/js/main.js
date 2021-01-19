@@ -264,6 +264,22 @@ let app = new Vue ({
     refreshFunc:function(){
       location.reload();
     },
+    prevFunc:function(){    
+      let content = document.querySelector(".movie_section");
+      content.scrollLeft -= 600;  
+    },
+    nextFunc:function(){
+      let content = document.querySelector(".movie_section");
+      content.scrollLeft += 600;
+    },
+    prevTvFunc:function(){    
+      let content = document.querySelector(".tv_section");
+      content.scrollLeft -= 600;  
+    },
+    nextTvFunc:function(){
+      let content = document.querySelector(".tv_section");
+      content.scrollLeft += 600;
+    },
     //Function to search movie and tvShows based on input field search
     searchFunc:function(){
 

@@ -31,10 +31,11 @@
             <!-- menu bar -->
             <img v-if="research" class="background_cine" src="assets/img/9263.jpg" alt="" @click="clearFunc">
             <div v-else>
+                
                 <!-- main Shows container -->
                 <h2 class="title_section">Movies</h2>
-                <div class="movie_section d-flex" @click="clearFunc">
-                    
+                <section class="movie_section d-flex" @click="clearFunc">
+                    <i @click="prevFunc" class="fas fa-caret-square-left"></i>
                     <!-- container section for movies -->
                     <div class="movie_info" v-for="(title,i) in shows.movie">  
                         <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
@@ -54,13 +55,14 @@
                         </div>
                     </div> 
                     <!-- //container section for movies -->
-                </div>
+                    <i @click="nextFunc" class="fas fa-caret-square-right"></i>
+                </section>
                 <!-- //main Shows container -->
                 
                 <!-- main Shows container -->
                 <h2 class="title_section">TvShows</h2>
-                <div class="movie_section d-flex" @click="clearFunc">
-                    
+                <section class="tv_section d-flex" @click="clearFunc">
+                    <i @click="prevTvFunc" class="fas fa-caret-square-left"></i>
                     <!-- container section for tv-show -->
                     <div class="movie_info" v-for="(title,i) in shows.tv">              
                         <img class="poster" v-if="title.poster_path !== null" :src="`https://image.tmdb.org/t/p/w342/${title.poster_path}`" alt="">
@@ -80,9 +82,10 @@
                         </div>
                     </div>  
                     <!-- //container section for tv-show --> 
-                    
-                </div>    
+                    <i @click="nextTvFunc" class="fas fa-caret-square-right"></i>
+                </section>    
                 <!-- //main Shows container -->
+                
             </div>
         </div>
         <!-- //General Div for app istance -->
@@ -97,3 +100,6 @@
        <script src="assets/js/main.js"></script> 
     </body>
 </html>
+
+<!-- <i class="fas fa-chevron-right"></i> -->
+<!-- <i class="fas fa-chevron-left"></i> -->
