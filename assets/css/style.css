@@ -129,13 +129,13 @@ h4,h5{
 
 .movie_info:hover .movie_hover{  
     visibility: visible;
-    width: 342px;
+    width: 420px;
     background-color: black;
-    height: 600px;
+    height: 520px;
     position: absolute;
     top: 0;
-    left: 0;
-    z-index: 2;  
+    left: -10%;
+    z-index: 10;  
     padding: 20px; 
     outline: none !important;
     border:1px solid blue;
@@ -153,7 +153,7 @@ h4,h5{
 }
 
 .movie_info:hover{
-    z-index: 0; 
+    z-index: 3;
 }
 
 .fa-star,.flag{
@@ -168,9 +168,9 @@ h4,h5{
 .poster{
     width: 342px;
     height: 520px;
-    object-fit: cover; 
+    object-fit: cover;
     border-radius: 10px;
-    z-index: 0;
+    z-index: -1;
 }
 
 .act_gen{
